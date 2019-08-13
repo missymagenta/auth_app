@@ -4,17 +4,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register page</title>
+    <title>Change pass</title>
 </head>
 <body>
 
 {% block content %}
 
-<h2 class="text-center">Register</h2>
+<h2 class="text-center">Edit profile</h2>
 
-<div class="col-md-6 offset-md-3">
-
-    <form method="POST" action="{% url 'register' %}">
+    <form method="POST" action="{% url 'change_pass' %}">
         {% csrf_token %}
 
         {% if form.errors %}
@@ -23,10 +21,9 @@
 
         {{ form.as_p }}
 
-        <input type="submit" value="Register" class="btn btn-secondary">
+        <input type="submit" value="Change password" class="btn btn-secondary">
     </form>
 
-</div>
 {% endblock %}
 </body>
 </html>
