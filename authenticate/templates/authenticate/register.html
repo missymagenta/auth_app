@@ -8,11 +8,23 @@
 </head>
 <body>
 
-    {% block content %}
+{% block content %}
 
-<h1>Homepage</h1>
+<h2>Register</h2>
+
+<form method="POST" action="{% url 'register' %}">
+    {% csrf_token %}
+
+    {% if form.errors %}
+    <p>Your form has errors</p>
+    {% endif %}
+
+    {{ form.as_p }}
+
+    <input type="submit" value="Register" class="btn btn-secondary">
+</form>
 
 
-    {% endblock %}
+{% endblock %}
 </body>
 </html>
